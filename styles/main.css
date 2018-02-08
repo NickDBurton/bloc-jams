@@ -16,13 +16,50 @@ body {
 }
 
 .navigationbar {
+  position: relative;
   padding: 0.5rem;
-  background-color: rgb(101,18,95);
+  /* #1 */
+  background-color: rgba(101,18,95,0.5);
+  /* #2 */
+  z-index: 1;
 }
 
 .navigationbar .logo {
   position: relative;
   left: 2rem;
+  cursor: pointer; /* produces the finger-pointer icon when you hover over the logo */
+}
+
+.navigationbar .links-container {
+  display: table;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100px;
+  color: white;
+}
+
+.links-container .navigationbar-link {
+  display: table-cell;
+  position: relative;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  /* #3 */
+  vertical-align: middle;
+  color: white;
+  font-size: 0.625rem;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* 4 */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* #5 */
+.links-container .navigationbar-link: hover {
+  color: rgb(233,50,117);
 }
 
 .container {
@@ -39,7 +76,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   .column.full { width: 100%; }
   .column.two-thirds { width: 66.7%; }
   .column.half { width: 50%; }
@@ -52,4 +89,12 @@ body {
 @media (min-width: 1024px) {
   html { font-size: 120%; }
   /* Style information will go here */
+}
+
+.clearfix::after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
 }
