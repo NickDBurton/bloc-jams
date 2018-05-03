@@ -21,7 +21,7 @@ body.album {
 
 .album-view-details .album-view-title {
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .album-view-details .album-view-artist {
@@ -61,7 +61,7 @@ body.album {
 }
 
 /* #2 */
-@@media (max-width: 640px) and (min-width: 320px) {
+@media (max-width: 640px) and (min-width: 320px) {
     .album-view-details {
         text-align: center;
     }
@@ -80,14 +80,3 @@ body.album {
         margin: auto;
     }
 }
-
-.container {
-    margin: 0 auto;
-    max-width: 64rem;
-}
-
-.container.narrow {
-    max-width: 56rem;
-}
-
-/* Medium screens (640px) */
