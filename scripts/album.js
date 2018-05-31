@@ -118,4 +118,3 @@ window.onload = function() {
       index = 0;
     }
   });
-};
