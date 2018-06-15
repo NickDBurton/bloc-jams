@@ -94,7 +94,7 @@ var setCurrentAlbum = function(album) {
 
   var clickHandler = function(targetElement) {
     var songItem = getSongItem(targetElement);
-    if (currentlyPlayingSong) === null) {
+    if (currentlyPlayingSong === null) {
         songItem.innerHTML = pauseButtonTemplate;
         currentlyPlayingSong = songItem.getAttribute('data-song-number');
 
@@ -158,9 +158,15 @@ window.onload = function() {
 
     for (var i = 0; i < songRows.length; i++) {
       songRows[i].addEventListener('mouseleave', function(event) {
-      // Selects first child element, which is the song-item-number element
-      this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
-      });
+    // #1
+        var songItem = getSongItem(event.target);
+        var songItemNumber = songItem.getAttribute('data-song-number');
+
+        //#2
+        if (songItemNumber !== currentlyPlayingSong) {
+            songItem.innerHTML = songItemNumber;
+        }
+  });
 
       songRows[i].addEventListener('click', function(event) {
           clickHandler(event.target);
@@ -175,5 +181,5 @@ window.onload = function() {
     index++;
     if (index == albums.length) {
       index = 0;
-    }
+    };
   });
